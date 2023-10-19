@@ -29,19 +29,11 @@ def insertionSort1(n, arr):
 
         print(*arr)
 
-# if __name__ == '__main__':
-#     n = int(input().strip())
+if __name__ == '__main__':
+    n = int(input().strip())
 
-#     arr = list(map(int, input().rstrip().split()))
+    arr = list(map(int, input().rstrip().split()))
 
-#     insertionSort1(n, arr)
+    insertionSort1(n, arr)
 
 
-num = 10
-arr = [2, 3, 4, 5, 6, 7, 8, 9, 10, 1]
-
-num2 = 5
-arr2 = [2,4,6,8,3]
-
-print(insertionSort1(num2,arr2))
-print(insertionSort1(num,arr))
