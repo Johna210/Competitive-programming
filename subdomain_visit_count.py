@@ -1,28 +1,27 @@
 def subdomainVisits(cpdomains):
 
-    domains = {}
+    visits = {}
+    domains = []
 
     for i in cpdomains:
         num, domain = i.split(" ")
         num = int(num)
 
-        domains[domain] = num
-        domain = domain.split(".")
-        for j in range(len(domain)):
-            if domain[j] == ".":
-                if domain[j+1:] in domains:
-                    domains[domain[j+1:]] += num
-                else:
-                    domains[domain[j+1:]] = num
-    output = []
-    for d in domains:
-        output.append(f"{domains[d]}" + f" {d}")
-                
-    print(output)
+        subdomains = domain.split(".")
+
+        for i in range(len(subdomains)):
+            sub = ".".join(subdomains[i:])
+
+            if sub not in visits:
+                visits[sub] = num
+            else:
+                visits[sub] = str(int(visits[sub]) + num)
+
+                    
+    for k, v in visits.items():
+        domains.append(f"{v} {k}")
 
 
-cpdomains = ["9001 discuss.leetcode.com"]
-cpdomains2 = ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
+    return domains
 
-subdomainVisits(cpdomains)
-subdomainVisits(cpdomains2)
+
