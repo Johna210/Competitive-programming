@@ -1,6 +1,5 @@
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
-
         counts = []
         left = 0
         right = k
@@ -11,6 +10,3 @@ class Solution:
             right += 1
 
         return min(counts)
-
-
-        
