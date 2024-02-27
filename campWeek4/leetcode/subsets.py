@@ -1,0 +1,16 @@
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        def func(curr,path):
+            if len(path) == len(nums):
+                return
+            
+            for idx in range(curr,len(nums)):
+                path.append(nums[idx])
+                ans.append(path[:])
+
+                func(idx+1,path)
+                path.pop()
+
+        ans = []
+        func(0,[])
+        return [[]] + ans
